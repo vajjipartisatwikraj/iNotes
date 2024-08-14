@@ -15,7 +15,7 @@ function Login() {
   //Fetching API to login the USER using email and password by Accessing his LoggedIn AUTH-TOKEN
   const handleSubmit= async (e)=>{
     e.preventDefault();
-    const response = await fetch(`http://localhost:5000/api/auth/login`, {
+    const response = await fetch(`https://inotes-h2op.onrender.com/api/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
