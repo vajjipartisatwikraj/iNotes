@@ -23,7 +23,7 @@ iNoteBook is a reliable tool for managing your important data. Whether you're jo
 
 You can access the deployed version of iNoteBook here:
 
-[**iNoteBook - Live Application**]([https://inotes-frontend-85jb.onrender.com/]) #Deployed through render.com
+[**iNoteBook - Live Application**][https://inotes-frontend-85jb.onrender.com/] #Deployed through render.com
 
 ## Getting Started
 
