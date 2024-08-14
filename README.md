@@ -1,4 +1,4 @@
-[**iNoteBook - Live Application**]([https://inotes-frontend-85jb.onrender.com/]) #Deployed through render.com
+[**iNoteBook - Live Application**][https://inotes-frontend-85jb.onrender.com/] #Deployed through render.com
 
 # iNoteBook
 
