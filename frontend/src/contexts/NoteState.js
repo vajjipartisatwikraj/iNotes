@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const NoteState = (props)=>{
 
-  const host = 'http://localhost:5000'
+  const host = 'https://inotes-h2op.onrender.com'
 
     const notesIntial = [];
     const [notes, setNotes] = useState(notesIntial)
