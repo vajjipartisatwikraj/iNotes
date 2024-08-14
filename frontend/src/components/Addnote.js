@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import noteContext from "../contexts/noteContext";
 
-function Addnote() {
+function Addnote(props) {
 
   const context = useContext(noteContext);
   const { addNote } = context;
@@ -13,6 +13,7 @@ function Addnote() {
     addNote(note.title, note.description, note.tag);
     console.log(note.title, note.description, note.tag)
     setNote({ title: "", description: "", tag: "" }); // Reset the form fields
+    props.showAlert("Your Notes has been saved Successfully.", "success")
   }
 
   const onChange=(e)=>{

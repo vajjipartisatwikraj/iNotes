@@ -1,12 +1,12 @@
 import React from 'react';
-import Notes from './Notes'
+import Notes from './Notes';
 
-const Home = () => {
+const Home = ({showAlert}) => {
 
   return (
     <div>
       <div className="container">
-          <Notes></Notes>
+          <Notes showAlert={showAlert} ></Notes>
       </div>
     </div>
   )

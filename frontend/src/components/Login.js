@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; //Used to set endpoint and NAVIGATE to that specific endpoint
 
-function Login() {
+function Login(props) {
 
   let navigate = useNavigate();
 
@@ -26,9 +26,10 @@ function Login() {
     if(json.success){
       localStorage.setItem('token',json.authToken)
       navigate("/")
+      props.showAlert("Logged In Successfully", "success")
     }
     else{
-      alert("Invalid credentials")
+      props.showAlert("Invalid credentials", "danger")
     }
   }
 

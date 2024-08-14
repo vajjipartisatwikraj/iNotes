@@ -1,9 +1,19 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'; //Used to set endpoint and NAVIGATE to that specific endpoint
+
 
 const Navbar = () => {
 
   let location = useLocation();
+
+  let navigate = useNavigate();
+
+  const logoutClick=()=>{
+    localStorage.removeItem("token")
+    navigate('/login')
+    
+  }
   
   return (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
@@ -23,8 +33,8 @@ const Navbar = () => {
           </ul>
         </div>
     </div>
-    <button type="button" className="btn btn-primary mx-2 my-1"><Link className="nav-link"  to="/login">LogIn</Link></button>
-    <button type="button" className="btn btn-primary mx-2 my-1"><Link className="nav-link"  to="/signup">SignUp</Link></button>
+    {!localStorage.getItem('token')?<div className="d-flex justify-content-between"><button type="button" className="btn btn-primary mx-2 my-1"><Link className="nav-link"  to="/login">LogIn</Link></button>
+    <button type="button" className="btn btn-primary mx-2 my-1"><Link className="nav-link"  to="/signup">SignUp</Link></button></div>:<button className="btn btn-primary mx-3" onClick={logoutClick}>Logout</button>}
   </nav>
   );
 };

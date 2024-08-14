@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 
 
-function SignUp() {
+function SignUp(props) {
 
   let navigate = useNavigate();
 
@@ -27,13 +27,14 @@ function SignUp() {
         if(json.success){
             localStorage.setItem('token', json.authToken)
             navigate("/")
+            props.showAlert("Account created Successfully. WELCOME", "success")
         }
         else{
-          alert("Invalid credentials")
+          props.showAlert("User Already Exists", "danger")
         }
     }
     else{
-        alert("password not match")
+        props.showAlert("Password doesn't match", "danger")
     }
   }
 

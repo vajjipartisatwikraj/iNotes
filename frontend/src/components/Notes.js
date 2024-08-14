@@ -4,7 +4,7 @@ import Noteitem from './Noteitem';
 import Addnote from "./Addnote";
 import { useNavigate } from "react-router-dom";
 
-function Notes() {
+function Notes(props) {
 
   //Accessing the Imported Context i.e, noteContext
   const context = useContext(noteContext);
@@ -23,6 +23,7 @@ function Notes() {
   const handleClick=(e)=>{
     refClose.current.click();
     editNote(note.id, note.etitle, note.edescription, note.etag) //To access the prop-{editNote} from noteContext to edit note
+    props.showAlert("Your changes have been saved Successfully", "success")
   }
 
   //useContext hook
@@ -48,7 +49,7 @@ function Notes() {
 
   return (
     <div>
-      <Addnote />
+      <Addnote showAlert={props.showAlert} />
       <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
       </button>
@@ -80,14 +81,14 @@ function Notes() {
           </div>
         </div>
       </div>
-      <div className="row my-3">
-        <h3 className="Home-heading my-2 ">Your Notes</h3>
+      <div className="row">
+        <h3 className="Home-heading ">Your Notes</h3>
         <div className="container">
           {Array.isArray(notes) && notes.length === 0 ? "No notes to display" : null}
         </div>
-        <div className="row my-3">
+        <div className="row">
           {Array.isArray(notes) && notes.map((note) => (
-            <Noteitem key={note._id} updateNote={updateNote} note={note} />
+            <Noteitem key={note._id} updateNote={updateNote} note={note} showAlert = {props.showAlert} />
           ))}
         </div>
       </div>
