@@ -4,7 +4,7 @@ const Note = require('../models/Notes'); //importing Notes.js File
 const fetchuser = require('../middleware/fetchuser');
 const { body, validationResult } = require('express-validator'); //importing Express Validator
 
-
+// ROUTE1: Adding note to the user using endpoint with the user-authToken: /api/auth/createuser
 router.post('/addnotes', fetchuser, [
     body('title', 'Enter a valid title').isLength({ min: 3 }),
     body('description', 'Enter a valid description').isLength({ min: 5 }),

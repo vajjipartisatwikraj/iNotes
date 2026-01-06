@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb://localhost:27017/iNoteBook';
+// Use environment variable or fallback to default
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/iNoteBook';
 
 const connectToMongo = async () => {
     try {
         await mongoose.connect(mongoURI);
-        console.log("Connected Successfully");
+        console.log("Connected to MongoDB successfully");
     } catch (err) {
-        console.error("Connection Error:", err);
+        console.error("MongoDB Connection Error:", err);
     }
 }
 

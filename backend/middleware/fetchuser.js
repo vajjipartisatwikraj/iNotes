@@ -1,5 +1,6 @@
 var jwt = require('jsonwebtoken');
-const JWT_SECRET = '123456789'; // Ensure this matches the secret used for signing tokens
+// Use environment variable with fallback for JWT secret
+const JWT_SECRET = process.env.JWT_SECRET || '123456789'; 
 
 const fetchuser = (req, res, next) => {
     const token = req.header('auth-token');

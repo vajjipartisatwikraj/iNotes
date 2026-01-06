@@ -5,7 +5,8 @@ const User = require('../models/User'); // Importing User model
 const bcrypt = require('bcrypt'); // Importing BCRYPT
 var jwt = require('jsonwebtoken'); // Importing JSON Web Token
 const fetchuser = require('../middleware/fetchuser'); // Importing Middleware
-const JWT_SECRET = '123456789'; // JWT Secret
+// Use environment variable with fallback for JWT secret
+const JWT_SECRET = process.env.JWT_SECRET || '123456789';
 
 // ROUTE1: Create a user using endpoint: /api/auth/createuser
 router.post('/createuser', [
